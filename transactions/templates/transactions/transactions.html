@@ -1,7 +1,57 @@
 {% extends 'transactions/base.html' %}
 
-{% block title %}Transactions{% endblock %}
+{% block title %}Transactions | {% endblock %}
 
 {% block content %}
-<h1>Transactions</h1>
+<main>
+  <div class="container">
+    <h2>Transactions</h2>
+    <div class="avl-bal">
+      <h3>Available Balance</h3>
+      <p>₹{{ total_balance }}</p>
+    </div>
+    <div class="summary">
+      <div class="income">
+        <h3>Income</h3>
+        <p>₹{{ total_income }}</p>
+      </div>
+      <div class="expense">
+        <h3>Expense</h3>
+        <p>₹{{ total_expense }}</p>
+      </div>
+    </div>
+    <div class="add-new-transaction">
+      <h4>Add new transaction</h4>
+      <form action="" method="POST"\>
+        {% csrf_token %}
+        <div class="form-group">
+          <select name="category" id="{{ form.category.id_for_label }}">
+            <option value="" disabled selected hidden>Select Category</option>
+            {% for value, label in form.category.field.choices %}
+            <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+            <input type="number" name="amount" id="{{ form.amount.id_for_label }}" placeholder="Amount (₹)">
+        </div>
+        <div class="form-group">
+            <input type="text" name="note" id="{{ form.note.id_for_label }}" placeholder="Add note">
+        </div>
+        <button type="submit">Add a transaction</button>
+      </form>
+      <p><a href="{% url 'dashboard' %}">Dashboard</a></p>
+    </div>
+    <div class="transaction-summary">
+      <h4>All Transactions</h4>
+      <ul class="transactions-list">
+        {% for transaction in all_transactions %}
+        <li class="{{ transaction.category.type|lower }}">{{ transaction.category.name }}
+          ( {{ transaction.note }} )
+          <span>₹{{ transaction.amount }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</main>
 {% endblock %}
