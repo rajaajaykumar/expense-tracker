@@ -22,4 +22,4 @@ class Transaction(models.Model):
 
     def __str__(self) -> str:
         formatted_date = self.date.strftime("%Y-%m-%d %H:%M:%S")
-        return f"{formatted_date} --- {self.category} --- ₹{self.amount}"
+        return f"{formatted_date} - ₹{self.amount} - {self.category}"
