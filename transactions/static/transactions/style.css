@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Lato", sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.navbar-right {
+    margin-left: auto;
+}
+
+main {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.container {
+    margin-top: 24px;
+}
+
+main h2 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.avl-bal {
+    text-align: left;
+    margin: 24px auto;
+    font-size: 14px;
+}
+
+.avl-bal p {
+    font-size: 24px;
+}
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 12px 48px;
+    margin-bottom: 24px;
+    box-shadow: 2px 2px 4px #ccc;
+    border-radius: 4px;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.income p,
+.expense p {
+    font-size: 18px;
+}
+
+.income p,
+.income span {
+    color: #2ecc71;
+}
+
+.expense p,
+.expense span {
+    color: #c0392b;
+}
+
+h4 {
+    padding: 4px;
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.transaction-summary {
+    margin-bottom: 24px;
+}
+
+.transactions-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 8px;
+    /* border: 0.5px solid #ccc; */
+    background-color: #fff;
+    box-shadow: 1px 1px 4px #ccc;
+    border-radius: 4px;
+    transition: background-color 0.1s;
+    cursor: pointer;
+}
+
+.transactions-list li span {
+    margin-left: auto;
+}
+
+.transactions-list li:hover {
+    background-color: #fff;
+}
+
+.transaction-summary p {
+    text-align: right;
+    padding-right: 0;
+}
+
+a {
+    color: #2583ef;
+    text-decoration: none;
+    font-size: 12px;
+    transition: font-size 0.1s, text-decoration 0.1s;
+}
+
+a:hover {
+    font-size: 14px;
+}
+
+.add-new-transaction {
+    margin-bottom: 24px;
+}
+
+.form-group {
+    margin-bottom: 8px;
+}
+
+select,
+input[type="number"],
+input[type="text"] {
+    width: calc(100% - 10px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    /* background-color: #7458ff; */
+    background-color: #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+@media screen and (max-width: 720px) {
+    main {
+        width: 90vw;
+    }
+}
