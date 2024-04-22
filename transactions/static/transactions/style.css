@@ -31,14 +31,14 @@ main {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 480px;
     margin: auto;
     text-align: center;
     justify-content: center;
 }
 
 .container {
-    margin-top: 24px;
+    margin-top: 20px;
 }
 
 main h2 {
@@ -48,7 +48,7 @@ main h2 {
 
 .avl-bal {
     text-align: left;
-    margin: 24px auto;
+    margin: 20px auto;
     font-size: 14px;
 }
 
@@ -62,7 +62,7 @@ main h2 {
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 12px 48px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     box-shadow: 2px 2px 4px #ccc;
     border-radius: 4px;
 }
@@ -88,6 +88,28 @@ h3 {
     color: #c0392b;
 }
 
+/* Edit & Delete icons in transactions */
+
+.edit-btn {
+    font-size: 10px;
+    color: #444;
+    margin: 0 4px 0 0;
+}
+
+.edit-btn:hover {
+    color: #007bff;
+}
+
+.delete-btn {
+    font-size: 10px;
+    color: #444;
+    margin: 0 0 0 4px;
+}
+
+.delete-btn:hover {
+    color: #ff0000;
+}
+
 h4 {
     padding: 4px;
     border-bottom: 1px solid #bbb;
@@ -96,7 +118,7 @@ h4 {
 }
 
 .transaction-summary {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .transactions-list li {
@@ -138,7 +160,7 @@ a:hover {
 }
 
 .add-new-transaction {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .form-group {
@@ -155,27 +177,51 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
-button {
+.blue-btn {
     width: 100%;
     border: none;
     outline: none;
     padding: 8px 16px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     font-size: 14px;
     font-weight: 600;
     color: #fff;
-    /* background-color: #7458ff; */
     background-color: #007bff;
     border-radius: 4px;
     cursor: pointer;
 }
 
-button:hover {
+.blue-btn:hover {
     background-color: #0056b3;
 }
 
-@media screen and (max-width: 720px) {
+
+@media screen and (max-width: 600px) {
     main {
         width: 90vw;
+    }
+
+    .container {
+        margin-top: 24px;
+    }
+
+    .avl-bal {
+        margin: 24px auto;
+    }
+
+    .summary {
+        margin-bottom: 24px;
+    }
+
+    .transaction-summary {
+        margin-bottom: 24px;
+    }
+
+    .add-new-transaction {
+        margin-bottom: 24px;
+    }
+
+    button {
+        margin-bottom: 24px;
     }
 }
