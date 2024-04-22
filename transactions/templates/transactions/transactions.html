@@ -1,6 +1,6 @@
 {% extends 'transactions/base.html' %}
 
-{% block title %}Transactions | {% endblock %}
+{% block title %} | Transactions{% endblock %}
 
 {% block content %}
 <main>
@@ -38,7 +38,7 @@
         <div class="form-group">
             <input type="text" name="note" id="{{ form.note.id_for_label }}" placeholder="Add note">
         </div>
-        <button type="submit">Add a transaction</button>
+        <button class="blue-btn" type="submit">Add a transaction</button>
       </form>
       <p><a href="{% url 'dashboard' %}">Dashboard</a></p>
     </div>
@@ -46,9 +46,9 @@
       <h4>All Transactions</h4>
       <ul class="transactions-list">
         {% for transaction in all_transactions %}
-        <li class="{{ transaction.category.type|lower }}">{{ transaction.category.name }}
+        <li class="{{ transaction.category.type|lower }}" title="{{ transaction.date }}"><a class="edit-btn" title="Edit transaction" href="{% url 'update-transaction' transaction.id %}">&#9998;</a>{{ transaction.category.name }}
           ( {{ transaction.note }} )
-          <span>₹{{ transaction.amount }}</span></li>
+          <span>₹{{ transaction.amount }}</span><a class="delete-btn" title="Delete transaction" href="{% url 'delete-transaction' transaction.id %}">&#10006;</a></li>
         {% endfor %}
       </ul>
     </div>

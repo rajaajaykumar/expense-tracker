@@ -1,0 +1,37 @@
+{% extends 'transactions/base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<main>
+  <div class="container">
+    <h2>Update Transaction</h2>
+    <div style="margin: 24px auto;">
+      <form action="{% url 'update-transaction' transaction.pk %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <select name="category" id="{{ form.category.id_for_label }}">
+            <option value="{{ transaction.category.name }}" disabled>Select Category</option>
+            {% for value, label in form.category.field.choices %}
+              <option value="{{ value }}" {% if value == transaction.category.pk %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="number" name="amount" id="{{ form.amount.id_for_label }}" value="{{ transaction.amount }}" placeholder="Amount (₹)">
+        </div>
+        <div class="form-group">
+          <input type="datetime-local" name="date" id="{{ form.date.id_for_label }}" value="{{ transaction.date|date:'Y-m-d\TH:i:s' }}" placeholder="Date and Time">
+        </div>    
+        <div class="form-group">
+          <input type="text" name="note" id="{{ form.note.id_for_label }}" value="{{ transaction.note }}" placeholder="Add note">
+        </div>
+        <button type="submit" class="blue-btn">Update Transaction</button>
+      </form>
+      <p><a href="{% url 'delete-transaction' transaction.pk %}" style="color: #ff0000;">Delete instead?</a></p>
+      <p><a href="{% url 'dashboard' %}">Back to Dashboard</a></p>
+      <p><a href="{% url 'transactions' %}">See all Transactions</a></p>
+    </div>
+  </div>
+</main>
+{% endblock %}

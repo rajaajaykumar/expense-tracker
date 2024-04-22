@@ -1,6 +1,6 @@
 {% extends 'transactions/base.html' %}
 
-{% block title %}Dashboard | {% endblock %}
+{% block title %} | Dashboard{% endblock %}
 
 {% block content %}
 <main>
@@ -24,7 +24,7 @@
       <h4>Recent Transactions</h4>
       <ul class="transactions-list">
         {% for transaction in recent_transactions %}
-        <li class="{{ transaction.category.type|lower }}">{{ transaction.category.name }}
+        <li class="{{ transaction.category.type|lower }}" id="{{ transaction.id }}" title="{{ transaction.date }}">{{ transaction.category.name }}
           {% if transaction.note %}
           ( {{ transaction.note|truncatechars:20 }} )
           {% endif %}
@@ -51,7 +51,7 @@
         <div class="form-group">
             <input type="text" name="note" id="{{ form.note.id_for_label }}" placeholder="Add note">
         </div>
-        <button type="submit">Add a transaction</button>
+        <button class="blue-btn" type="submit">Add a transaction</button>
       </form>
     </div>
   </div>
