@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Category, Transaction
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Transaction
 from .forms import TransactionForm
 
 
@@ -59,3 +59,30 @@ def transactions(request):
         "total_balance": total_balance
     }
     return render(request, "transactions/transactions.html", context)
+
+
+def update_transaction(request, pk):
+    """
+    View to update an existing transaction. Raise an Http404 exception if the object does not exist."""
+    transaction = get_object_or_404(Transaction, pk=pk)
+    if request.method == "POST":
+        form = TransactionForm(request.POST, instance=transaction)
+        if form.is_valid():
+            form.save()
+            return redirect("transactions")
+    else:
+        form = TransactionForm(instance=transaction)
+    context = {"form": form, "transaction": transaction}
+    return render(request, "transactions/update_transaction.html", context)
+
+
+def delete_transaction(request, pk):
+    """
+    View to delete an existing transaction. Raise an Http404 exception if the object does not exist."""
+    transaction = get_object_or_404(Transaction, pk=pk)
+    if request.method == "POST":
+        transaction.delete()
+        return redirect("transactions")
+    else:
+        context = {"transaction": transaction}
+        return render(request, "transactions/delete_transaction.html", context)
