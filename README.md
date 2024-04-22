@@ -8,18 +8,18 @@ A user-friendly web application built with Django, helping users to manage their
 ### Technologies Used
 
 - HTML (for creating the structure of web pages)
-- CSS (for styling)
-<!-- - JavaScript (for adding functionality) -->
+- CSS (for styling) <!-- - JavaScript (for adding functionality) -->
 - Django (for the backend)
 
 ### Usage
 
 - Add a Transaction.
 - View historical transactions.
+- Update and Delete a transaction.
 
 ### To Do:
 
-- [ ] Update and Delete a transaction
+- [x] Update and Delete a transaction
 - [ ] Login/Signup
 - [ ] Dark Mode
 
